@@ -29,5 +29,11 @@ def login ():
         session["username"] = user["username"]
         flash("Logged in")
         return redirect("/melons")
-        
+
     return render_template("login.html", form=form)
+
+@app.route("/logout")
+def logout():
+    del session["username"]
+    flash("Logged out.")
+    return redirect("/login")
