@@ -24,6 +24,9 @@ def melon_details(melon_id):
 
 @app.route("/add_to_cart/<melon_id>")
 def add_to_cart(melon_id):
+    if 'username' not in session:
+        return redirect('login')
+
     if 'cart' not in session:
         session['cart'] = {}
     cart = session['cart']
@@ -37,6 +40,9 @@ def add_to_cart(melon_id):
 
 @app.route("/cart")
 def show_shopping_cart():
+    if 'username' not in session:
+        return redirect('login')
+
     order_total = 0
     cart_melons = []
     cart = session.get("cart", {})
@@ -60,6 +66,9 @@ def empty_cart():
 
     return redirect("/cart")
 
+@app.errorhandler(404)
+    def error_404(e):
+        return render_template("404.html")
 
 if __name__ == "__main__":
     app.env = "development"
