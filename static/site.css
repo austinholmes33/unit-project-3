@@ -1,3 +1,7 @@
+body {
+    background-color: lightcyan;
+}
+
 .melon-image {
     height: 300px;
     width: 300px;
@@ -8,4 +12,11 @@
     display: flex;
     flex-wrap: wrap; 
     justify-content: space-between;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.four-oh-four {
+    display: flex;
+    justify-content: center;
 }

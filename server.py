@@ -13,17 +13,21 @@ app.jinja_env.undefined = jinja2.StrictUndefined
 def homepage():
     return render_template("base.html")
 
+# route to all melons page, function uses get_all function from melons.py to get all melon objects from melons.csv
 @app.route("/melons")
 def all_melons():
 
     melon_list = melons.get_all()
     return render_template("all_melons.html", melon_list = melon_list)
 
+# route to melon details page, uses get_by_id function from melons.py to return a single melon based on its id
 @app.route("/melon/<melon_id>")
 def melon_details(melon_id):
     melon = melons.get_by_id(melon_id)
     return render_template("melon_details.html", melon=melon)
 
+# function that allows the user to add a melon to the cart, will not allow user to do so if not logged in\
+# will redirect to cart and provide user with flash message
 @app.route("/add_to_cart/<melon_id>")
 def add_to_cart(melon_id):
     if 'username' not in session:
@@ -96,6 +100,7 @@ def logout():
 
 @app.errorhandler(404)
 def error_404(e):
+    # flash("404 Page not Found")
     return render_template("404.html")
 
 if __name__ == "__main__":
