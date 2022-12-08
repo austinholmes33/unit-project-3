@@ -1,9 +1,11 @@
-melon-image {
+.melon-image {
     height: 300px;
     width: 300px;
+    border: solid black 4px;
 }
 
-melon-list {
+#melon-list {
     display: flex;
     flex-wrap: wrap; 
+    justify-content: space-between;
 }
