@@ -2,6 +2,25 @@ body {
     background-color: lightcyan;
 }
 
+.base-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: underline;
+}
+
+.base-img-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.base-melon {
+    height: 400px;
+    width: 450px;
+    border: solid black 2px;
+    box-shadow: 2px 2px 4px black;
+}
+
 .melon-image {
     height: 300px;
     width: 300px;
